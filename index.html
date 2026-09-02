@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ["Inter", "sans-serif"],
+          display: ["Cormorant Garamond", "serif"],
+        },
+      },
+    },
+  };
+</script>
+
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Tailwind Configuration -->
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ["Inter", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<!-- Custom CSS -->
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Smooth navbar appearance */
+  header {
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      backdrop-filter 0.3s ease;
+  }
+
+  /* Better mobile tap experience */
+  nav a,
+  nav button {
+    -webkit-tap-highlight-color: transparent;
+  }
+</style>
+
+
+
+
+
+<!-- ================= CHURCH HEADER ================= -->
+<header
+  class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur-xl"
+>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+
+    <!-- Logo -->
+    <a href="#home" class="group flex items-center gap-3">
+      <!-- Logo Icon -->
+      <div
+        class="flex h-11 w-11 items-center justify-center rounded-full
+               bg-white text-gray-900 shadow-lg transition duration-300
+               group-hover:scale-105"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          class="h-6 w-6"
+        >
+          <path d="M12 3v18M7 8h10" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Church Name -->
+      <div class="leading-none">
+        <span class="block font-sans text-lg font-bold tracking-tight text-white">
+          GRACE
+        </span>
+        <span class="block text-[10px] font-medium uppercase tracking-[0.3em] text-white/60">
+          Community Church
+        </span>
+      </div>
+    </a>
+
+
+    <!-- Desktop Navigation -->
+    <div class="hidden items-center gap-8 md:flex">
+
+      <a
+        href="#home"
+        class="relative font-medium text-white transition duration-300
+               after:absolute after:-bottom-2 after:left-0 after:h-[2px]
+               after:w-full after:origin-left after:scale-x-100
+               after:bg-white after:transition-transform"
+      >
+        Home
+      </a>
+
+      <a
+        href="#about"
+        class="relative font-medium text-white/70 transition
+               duration-300 hover:text-white
+               after:absolute after:-bottom-2 after:left-0 after:h-[2px]
+               after:w-full after:origin-left after:scale-x-0
+               after:bg-white after:transition-transform
+               hover:after:scale-x-100"
+      >
+        About
+      </a>
+
+      <a
+        href="#ministries"
+        class="relative font-medium text-white/70 transition
+               duration-300 hover:text-white
+               after:absolute after:-bottom-2 after:left-0 after:h-[2px]
+               after:w-full after:origin-left after:scale-x-0
+               after:bg-white after:transition-transform
+               hover:after:scale-x-100"
+      >
+        Ministries
+      </a>
+
+      <a
+        href="#sermons"
+        class="relative font-medium text-white/70 transition
+               duration-300 hover:text-white
+               after:absolute after:-bottom-2 after:left-0 after:h-[2px]
+               after:w-full after:origin-left after:scale-x-0
+               after:bg-white after:transition-transform
+               hover:after:scale-x-100"
+      >
+        Sermons
+      </a>
+
+      <a
+        href="#events"
+        class="relative font-medium text-white/70 transition
+               duration-300 hover:text-white
+               after:absolute after:-bottom-2 after:left-0 after:h-[2px]
+               after:w-full after:origin-left after:scale-x-0
+               after:bg-white after:transition-transform
+               hover:after:scale-x-100"
+      >
+        Events
+      </a>
+
+      <a
+        href="#contact"
+        class="relative font-medium text-white/70 transition
+               duration-300 hover:text-white
+               after:absolute after:-bottom-2 after:left-0 after:h-[2px]
+               after:w-full after:origin-left after:scale-x-0
+               after:bg-white after:transition-transform
+               hover:after:scale-x-100"
+      >
+        Contact
+      </a>
+
+    </div>
+
+
+    <!-- Desktop CTA -->
+    <a
+      href="#visit"
+      class="hidden items-center gap-2 rounded-full bg-white px-5 py-2.5
+             text-sm font-semibold text-gray-900 shadow-lg transition
+             duration-300 hover:-translate-y-0.5 hover:bg-gray-100
+             hover:shadow-xl md:flex"
+    >
+      Join Us
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="h-4 w-4"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 12h14m-6-6 6 6-6 6"
+        />
+      </svg>
+    </a>
+
+
+    <!-- Mobile Menu Button -->
+    <button
+      type="button"
+      aria-label="Open menu"
+      class="flex h-11 w-11 items-center justify-center rounded-full
+             border border-white/20 bg-white/10 text-white
+             backdrop-blur-md transition hover:bg-white/20 md:hidden"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.8"
+        stroke="currentColor"
+        class="h-6 w-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 7h16M4 12h16M4 17h16"
+        />
+      </svg>
+    </button>
+
+  </nav>
+</header>
+<!-- ================= HERO ================= -->
+<section
+  id="home"
+  class="relative flex min-h-screen items-center justify-center overflow-hidden"
+>
+
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src="home.jpeg"
+      alt="Worship at Home of Glory"
+      class="h-full w-full object-cover object-center"
+    >
+  </div>
+
+  <!-- Dark Overlay -->
+  <div
+    class="absolute inset-0 bg-black/55"
+  ></div>
+
+  <!-- Soft Gradient -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b
+           from-black/60 via-black/20 to-black/75"
+  ></div>
+
+
+  <!-- Hero Content -->
+  <div
+    class="relative z-10 mx-auto max-w-4xl px-6 text-center"
+  >
+
+    <!-- Small Welcome Text -->
+    <p
+      class="mb-5 font-sans text-sm font-medium uppercase
+             tracking-[0.35em] text-white/80 sm:text-base"
+    >
+      Welcome Home
+    </p>
+
+
+    <!-- Church Name -->
+    <h1
+      class="font-display text-6xl font-semibold leading-[0.9]
+             tracking-tight text-white
+             sm:text-7xl md:text-8xl lg:text-9xl"
+    >
+      Home of Glory
+    </h1>
+
+
+    <!-- Decorative Line -->
+    <div class="mx-auto mt-8 flex items-center justify-center gap-4">
+      <span class="h-px w-12 bg-white/50 sm:w-20"></span>
+
+      <span class="text-xl text-white/80">✦</span>
+
+      <span class="h-px w-12 bg-white/50 sm:w-20"></span>
+    </div>
+
+
+    <!-- Description -->
+    <p
+      class="mx-auto mt-7 max-w-xl font-sans text-base
+             leading-relaxed text-white/75 sm:text-lg"
+    >
+      A place of faith, love, worship, and transformation.
+      Come as you are and experience the glory of God.
+    </p>
+
+
+    <!-- CTA -->
+    <div class="mt-9 flex flex-col items-center justify-center
+                gap-3 sm:flex-row">
+
+     
+
+      
+    </div>
+
+  </div>
+
+
+  <!-- Scroll Indicator -->
+  <a
+    href="#about"
+    aria-label="Scroll down"
+    class="absolute bottom-7 left-1/2 z-10
+           flex -translate-x-1/2 flex-col items-center
+           gap-2 text-white/60 transition
+           hover:text-white"
+  >
+    <span
+      class="text-[10px] font-medium uppercase
+             tracking-[0.3em]"
+    >
+      Scroll
+    </span>
+
+    <span
+      class="h-9 w-px bg-gradient-to-b
+             from-white/70 to-transparent"
+    ></span>
+  </a>
+
+</section>
+
+
+
+
+<body>
+  
+</body>
+
+</html>
