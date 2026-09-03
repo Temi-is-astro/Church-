@@ -193,32 +193,58 @@
     
 
 
-    <!-- Mobile Menu Button -->
-    <button
-      type="button"
-      aria-label="Open menu"
-      class="flex h-11 w-11 items-center justify-center rounded-full
-             border border-white/20 bg-white/10 text-white
-             backdrop-blur-md transition hover:bg-white/20 md:hidden"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.8"
-        stroke="currentColor"
-        class="h-6 w-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M4 7h16M4 12h16M4 17h16"
-        />
-      </svg>
-    </button>
+   <!-- Mobile Menu Button -->
+<button
+  id="menu-btn"
+  type="button"
+  aria-label="Open menu"
+  aria-expanded="false"
+  class="group flex items-center justify-center
+         bg-transparent p-2 text-white
+         transition md:hidden"
+>
+  <svg
+    id="menu-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    class="h-8 w-8 transition-transform duration-300"
+  >
+    <path
+      id="line-1"
+      d="M3 6h18"
+      class="transition-all duration-300"
+    />
 
-  </nav>
+    <path
+      id="line-2"
+      d="M3 12h18"
+      class="transition-all duration-300"
+    />
+
+    <path
+      id="line-3"
+      d="M3 18h18"
+      class="transition-all duration-300"
+    />
+  </svg>
+</button>
+
+
+
+
+  
+  
+  
 </header>
+
+
+
+
+
 <!-- ================= HERO ================= -->
 <section
   id="home"
@@ -345,7 +371,7 @@
          tracking-[-0.03em] text-black
          sm:text-4xl md:text-5xl"
 >
-  Faith that brings us together.
+ United by Faith.
 </h2>
 
   <!-- Short Description -->
