@@ -619,27 +619,60 @@ document.querySelectorAll(".mobile-nav-link").forEach((link) => {
 
 
   <!-- Scroll Indicator -->
-  <a
-    href="#about"
-    aria-label="Scroll down"
-    class="absolute bottom-7 left-1/2 z-10
-           flex -translate-x-1/2 flex-col items-center
-           gap-2 text-white/60 transition
-           hover:text-white"
+<a
+  href="#about"
+  aria-label="Scroll down"
+  class="group absolute bottom-7 left-1/2 z-10
+         flex -translate-x-1/2 flex-col items-center
+         text-white/60 transition-all duration-300
+         hover:text-white"
+>
+  <span
+    class="font-sans text-[10px] font-medium uppercase
+           tracking-[0.3em] transition-all duration-300
+           group-hover:tracking-[0.4em]"
+  >
+    Scroll
+  </span>
+
+  <span
+    class="relative mt-2 h-10 w-px overflow-hidden
+           bg-white/20"
   >
     <span
-      class="text-[10px] font-medium uppercase
-             tracking-[0.3em]"
-    >
-      Scroll
-    </span>
-
-    <span
-      class="h-9 w-px bg-gradient-to-b
-             from-white/70 to-transparent"
+      class="absolute left-0 top-0 h-5 w-px
+             bg-gradient-to-b from-white to-transparent
+             animate-[scrollLine_1.8s_ease-in-out_infinite]"
     ></span>
-  </a>
+  </span>
 
+  <!-- Small downward arrow -->
+  <span
+    class="-mt-1 h-2 w-2 rotate-45
+           border-b border-r border-white/60
+           transition-all duration-300
+           group-hover:translate-y-1 group-hover:border-white"
+  ></span>
+</a>
+
+<style>
+@keyframes scrollLine {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+</style>
 </section>
 
 
@@ -1104,6 +1137,83 @@ document.querySelectorAll(".mobile-nav-link").forEach((link) => {
 
   </div>
 </section>
+
+
+
+
+
+
+<!-- ================= FIMB PASTOR ================= -->
+<section
+  id="pastor"
+  class="w-full bg-white py-20 sm:py-24 lg:py-32"
+>
+  <div
+    class="mx-auto grid w-full max-w-7xl items-center gap-12
+           px-5 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-10"
+  >
+
+    <!-- Pastor Image -->
+    <div
+      class="overflow-hidden rounded-[32px] bg-black/5
+             sm:rounded-[40px]"
+    >
+      <img
+        src="pastor.jpg"
+        alt="FIMB Pastor"
+        class="h-full w-full object-cover"
+      />
+    </div>
+
+
+    <!-- Content -->
+    <div>
+
+      <p
+        class="font-sans text-sm font-medium uppercase
+               tracking-[0.2em] text-black/45"
+      >
+        FIMB Pastor
+      </p>
+
+      <h1
+        class="mt-4 font-sans text-4xl font-semibold
+               leading-tight tracking-tight text-black
+               sm:text-5xl lg:text-6xl"
+      >
+        Leading with faith.
+      </h1>
+
+      <p
+        class="mt-6 max-w-xl font-sans text-base leading-7
+               text-black/60 sm:text-lg sm:leading-8"
+      >
+        A shepherd committed to leading God’s people,
+        strengthening their faith, and helping them grow
+        in Christ through the Word, prayer, and love.
+      </p>
+
+      <div class="mt-8 h-px w-16 bg-black/20"></div>
+
+      <p
+        class="mt-6 font-sans text-base font-medium text-black"
+      >
+        Pastor Olamide Perez
+      </p>
+
+      <p
+        class="mt-1 font-sans text-sm text-black/45"
+      >
+        Senior Pastor, FIMB Ministries· Home Of Glory
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+
 
 
 
