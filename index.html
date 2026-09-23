@@ -1690,6 +1690,100 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  /*
+   * GLOBAL VIEWPORT FIX
+   * Keeps the website locked to the device width.
+   */
+  const html = document.documentElement;
+  const body = document.body;
+
+  html.style.width = "100%";
+  html.style.maxWidth = "100%";
+  html.style.overflowX = "hidden";
+
+  body.style.width = "100%";
+  body.style.maxWidth = "100%";
+  body.style.overflowX = "hidden";
+  body.style.margin = "0";
+
+
+  /*
+   * RESTORE ORIGINAL HEADING SIZING
+   * Removes animation-generated inline sizing/layout interference.
+   */
+  const churchName = document.getElementById("church-name");
+
+  if (churchName) {
+    churchName.style.width = "";
+    churchName.style.maxWidth = "";
+    churchName.style.fontSize = "";
+    churchName.style.margin = "";
+    churchName.style.padding = "";
+  }
+
+
+  /*
+   * FIX ANIMATED WORDS
+   * Prevents individual words from creating horizontal overflow.
+   */
+  document.querySelectorAll(".church-word").forEach(word => {
+    word.style.maxWidth = "100%";
+    word.style.boxSizing = "border-box";
+  });
+
+
+  /*
+   * FIX COMMON ANIMATION ELEMENTS
+   * Transforms can visually extend outside the viewport,
+   * but they should never create a wider page.
+   */
+  document.querySelectorAll(
+    "#welcome-text, #fmb-pastor, #leading-faith, #life-together, #worship-heading, #shepherd-text"
+  ).forEach(element => {
+    element.style.maxWidth = "100%";
+    element.style.boxSizing = "border-box";
+  });
+
+
+  /*
+   * MOBILE WIDTH SAFETY
+   */
+  const viewportFix = document.createElement("style");
+
+  viewportFix.textContent = `
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    img,
+    video,
+    canvas,
+    svg {
+      max-width: 100%;
+    }
+
+    .church-word {
+      max-width: 100%;
+    }
+  `;
+
+  document.head.appendChild(viewportFix);
+});
+</script>
+
+
+
 
 
   </div>
