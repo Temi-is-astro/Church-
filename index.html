@@ -1774,34 +1774,53 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script>
-  const scrollControl = document.getElementById("scroll-control");
-  const scrollButton = document.getElementById("scroll-button");
-  const progressCircle = document.getElementById("scroll-progress");
+  const scrollControl =
+    document.getElementById("scroll-control");
 
-  const downIcon = document.getElementById("scroll-down-icon");
-  const upIcon = document.getElementById("scroll-up-icon");
+  const scrollButton =
+    document.getElementById("scroll-button");
+
+  const progressCircle =
+    document.getElementById("scroll-progress");
+
+  const downIcon =
+    document.getElementById("scroll-down-icon");
+
+  const upIcon =
+    document.getElementById("scroll-up-icon");
 
   const circumference = 125.6;
+
+  let lastScrollY = window.scrollY;
+  let scrollDirection = "down";
 
   function updateScrollControl() {
     const scrollTop = window.scrollY;
     const heroHeight = window.innerHeight;
 
     const pageHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+      document.documentElement.scrollHeight -
+      window.innerHeight;
 
+    /* Detect scroll direction */
+    if (scrollTop > lastScrollY + 2) {
+      scrollDirection = "down";
+    } else if (scrollTop < lastScrollY - 2) {
+      scrollDirection = "up";
+    }
+
+    lastScrollY = scrollTop;
+
+    /* Progress ring */
     const progress =
       pageHeight > 0
         ? Math.min(scrollTop / pageHeight, 1)
         : 0;
 
-    // Update progress ring
     progressCircle.style.strokeDashoffset =
       circumference - progress * circumference;
 
-    /*
-      Keep completely hidden inside the hero
-    */
+    /* Hide inside hero */
     if (scrollTop <= heroHeight * 0.85) {
       scrollControl.classList.remove(
         "opacity-100",
@@ -1817,9 +1836,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    /*
-      Show after leaving hero
-    */
+    /* Show control */
     scrollControl.classList.remove(
       "opacity-0",
       "translate-y-4",
@@ -1831,21 +1848,64 @@ document.addEventListener("DOMContentLoaded", () => {
       "translate-y-0"
     );
 
-    // Change to UP
-    downIcon.classList.add("hidden");
-    upIcon.classList.remove("hidden");
+    /* At bottom → always show UP */
+    if (scrollTop >= pageHeight - 10) {
+      scrollDirection = "up";
+    }
 
-    scrollButton.setAttribute(
-      "aria-label",
-      "Back to top"
-    );
+    /* Change arrow */
+    if (scrollDirection === "down") {
+      downIcon.classList.remove("hidden");
+      upIcon.classList.add("hidden");
+
+      scrollButton.setAttribute(
+        "aria-label",
+        "Scroll down"
+      );
+    } else {
+      downIcon.classList.add("hidden");
+      upIcon.classList.remove("hidden");
+
+      scrollButton.setAttribute(
+        "aria-label",
+        "Scroll up"
+      );
+    }
   }
 
+  /* Button action */
   scrollButton.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    const pageHeight =
+      document.documentElement.scrollHeight -
+      window.innerHeight;
+
+    const scrollTop = window.scrollY;
+
+    /* If at bottom, go back to top */
+    if (scrollTop >= pageHeight - 10) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      return;
+    }
+
+    /* Scroll down */
+    if (scrollDirection === "down") {
+      window.scrollBy({
+        top: window.innerHeight * 0.75,
+        behavior: "smooth"
+      });
+    }
+
+    /* Scroll up */
+    else {
+      window.scrollBy({
+        top: -(window.innerHeight * 0.75),
+        behavior: "smooth"
+      });
+    }
   });
 
   window.addEventListener(
@@ -1854,9 +1914,13 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true }
   );
 
+  window.addEventListener(
+    "resize",
+    updateScrollControl
+  );
+
   updateScrollControl();
 </script>
-
 
 
 
