@@ -1678,6 +1678,187 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 
+<!-- Floating Scroll Button -->
+<div
+  id="scroll-control"
+  class="fixed bottom-6 right-5 z-50
+         opacity-0 translate-y-4 pointer-events-none
+         transition-all duration-500 ease-out"
+>
+  <button
+    id="scroll-button"
+    type="button"
+    aria-label="Scroll down"
+    class="group relative flex h-11 w-11 items-center justify-center
+           overflow-hidden rounded-full
+           border border-white/15
+           bg-black/70 backdrop-blur-xl
+           shadow-[0_8px_30px_rgba(0,0,0,0.25)]
+           transition-all duration-300
+           hover:border-white/30 hover:bg-black/80
+           active:scale-90"
+  >
+
+    <!-- Progress ring -->
+    <svg
+      class="absolute inset-0 h-full w-full -rotate-90"
+      viewBox="0 0 44 44"
+      aria-hidden="true"
+    >
+      <circle
+        cx="22"
+        cy="22"
+        r="20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        class="text-white/10"
+      />
+
+      <circle
+        id="scroll-progress"
+        cx="22"
+        cy="22"
+        r="20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        class="text-white/70"
+        stroke-dasharray="125.6"
+        stroke-dashoffset="125.6"
+      />
+    </svg>
+
+    <!-- Down icon -->
+    <svg
+      id="scroll-down-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      class="relative h-4 w-4 text-white/80
+             transition-all duration-300
+             group-hover:translate-y-0.5"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 5v13M6.5 12.5 12 18l5.5-5.5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+
+    <!-- Up icon -->
+    <svg
+      id="scroll-up-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      class="relative hidden h-4 w-4 text-white/80
+             transition-all duration-300
+             group-hover:-translate-y-0.5"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 19V6M6.5 11.5 12 6l5.5 5.5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+
+  </button>
+</div>
+
+<script>
+  const scrollControl = document.getElementById("scroll-control");
+  const scrollButton = document.getElementById("scroll-button");
+  const progressCircle = document.getElementById("scroll-progress");
+
+  const downIcon = document.getElementById("scroll-down-icon");
+  const upIcon = document.getElementById("scroll-up-icon");
+
+  const circumference = 125.6;
+
+  function updateScrollControl() {
+    const scrollTop = window.scrollY;
+    const heroHeight = window.innerHeight;
+
+    const pageHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress =
+      pageHeight > 0
+        ? Math.min(scrollTop / pageHeight, 1)
+        : 0;
+
+    // Update progress ring
+    progressCircle.style.strokeDashoffset =
+      circumference - progress * circumference;
+
+    /*
+      Keep completely hidden inside the hero
+    */
+    if (scrollTop <= heroHeight * 0.85) {
+      scrollControl.classList.remove(
+        "opacity-100",
+        "translate-y-0"
+      );
+
+      scrollControl.classList.add(
+        "opacity-0",
+        "translate-y-4",
+        "pointer-events-none"
+      );
+
+      return;
+    }
+
+    /*
+      Show after leaving hero
+    */
+    scrollControl.classList.remove(
+      "opacity-0",
+      "translate-y-4",
+      "pointer-events-none"
+    );
+
+    scrollControl.classList.add(
+      "opacity-100",
+      "translate-y-0"
+    );
+
+    // Change to UP
+    downIcon.classList.add("hidden");
+    upIcon.classList.remove("hidden");
+
+    scrollButton.setAttribute(
+      "aria-label",
+      "Back to top"
+    );
+  }
+
+  scrollButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  window.addEventListener(
+    "scroll",
+    updateScrollControl,
+    { passive: true }
+  );
+
+  updateScrollControl();
+</script>
+
+
+
 
 
 
