@@ -140,7 +140,7 @@
       </a>
 
       <a
-        href="#ministries"
+        href="#pastor"
         class="relative font-medium text-white/70 transition
                duration-300 hover:text-white
                after:absolute after:-bottom-2 after:left-0 after:h-[2px]
@@ -335,7 +335,7 @@
 
       <!-- Ministries -->
       <a
-        href="#ministries"
+        href="#pastor"
         class="mobile-nav-link group flex items-center justify-between
                border-b border-white/10 py-4 text-white/70
                transition duration-300 hover:text-white"
@@ -568,26 +568,25 @@ document.querySelectorAll(".mobile-nav-link").forEach((link) => {
     class="relative z-10 mx-auto max-w-4xl px-6 text-center"
   >
 
-    <!-- Small Welcome Text -->
-    <p
-    id="welcome-text"
-      class="mb-5 font-sans text-sm font-medium uppercase
-             tracking-[0.35em] text-white/80 sm:text-base"
-    >
-      Welcome To
-    </p>
+<!-- Small Welcome Text -->
+<p
+  id="welcome-text"
+  class="mb-5 font-sans text-sm font-medium uppercase
+         tracking-[0.35em] text-white/80 sm:text-base
+         lg:mb-4 lg:text-sm"
+>
+  Welcome To
+</p>
 
-
-  <!-- Church Name -->
+<!-- Church Name -->
 <h3
-id="church-name"
+  id="church-name"
   class="font-display text-[2.5rem] font-semibold leading-[0.95]
          tracking-tight text-white
-         sm:text-6xl md:text-7xl lg:text-8xl"
+         sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5rem]"
 >
   Fire In My Bones
 </h3>
-
     <!-- Decorative Line -->
     <div class="mx-auto mt-8 flex items-center justify-center gap-4">
       <span class="h-px w-12 bg-white/50 sm:w-20"></span>
@@ -780,7 +779,9 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- ================= SERMONS & WORSHIP ================= -->
 <section
   id="sermons"
-  class="relative mt-8 w-full overflow-hidden py-16 sm:mt-10 sm:py-20 lg:mt-12 lg:py-28"
+  class="relative mt-8 w-full overflow-hidden py-16
+         sm:mt-10 sm:py-20
+         lg:mt-12 lg:py-20"
 >
 
   <!-- ================= FULL-BLEED BACKGROUND ================= -->
@@ -820,8 +821,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <!-- ================= VIDEO ================= -->
   <div
-    class="relative mx-auto w-full max-w-6xl
-           px-5 sm:px-8 lg:px-10"
+    class="relative mx-auto w-full
+           max-w-6xl px-5
+           sm:px-8
+           lg:max-w-4xl lg:px-0
+           xl:max-w-5xl"
   >
 
     <div
@@ -837,7 +841,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <iframe
           src="https://www.youtube.com/embed/uvZVk62Y5vA"
-          
           title="FIMB Sermon"
           class="absolute inset-0 h-full w-full border-0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -848,6 +851,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     </div>
 
+  </div>
+
+</section>
   </div>
 
 </section>
@@ -2100,7 +2106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <!-- ================= SOCIAL / FOOTER ================= -->
-<footer class="bg-black text-white">
+<footer id="contact"  class="bg-black text-white">
 
   <!-- Main Footer -->
   <div class="mx-auto max-w-7xl px-6 py-16 sm:px-8 sm:py-20 lg:px-10">
